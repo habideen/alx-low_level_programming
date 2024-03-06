@@ -29,7 +29,7 @@ unsigned int _strspn(char *s, char *accept)
 
 		if (!found)
 		{
-			return length;
+			return (length);
 		}
 
 		s++;
@@ -37,5 +37,5 @@ unsigned int _strspn(char *s, char *accept)
 		accept = temp;
 	}
 
-	return length;
+	return (length);
 }
