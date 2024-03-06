@@ -10,30 +10,29 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	char *substring_start;
+	unsigned int x = 0;
+	unsigned int y = 0;
 
-	while (*haystack != '\0')
+	while (haystack[x])
 	{
-		substring_start = haystack;
-
-		while (*needle != '\0')
+		while (needle[y] && (haystack[x] == needle[0]))
 		{
-			if (*haystack != *needle)
+			if (haystack[x + y] == needle[y])
+			{
+				y++;
+			}
+			else
 			{
 				break;
 			}
-			haystack++;
-			needle++;
 		}
-
-		if (*needle == '\0')
+		if (needle[y])
 		{
-			return (substring_start);
+			x++;
+			y = 0;
 		}
-
-		haystack = substring_start + 1;
-		needle = needle - (haystack - substring_start);
-		needle = needle - (haystack - substring_start);
+		else
+			return (haystack + x);
 	}
 
 	return (0);
